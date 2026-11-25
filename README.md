@@ -1,75 +1,39 @@
-<p align="center">
-  <img src="assets/hero.svg" alt="mapkg: ask your map anything. OpenStreetMap as an RDF knowledge graph, an LLM writes the SPARQL, served over MCP." width="100%">
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="https://github.com/YOUR_GITHUB_USERNAME/nl-map-query/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/YOUR_GITHUB_USERNAME/nl-map-query/actions/workflows/ci.yml/badge.svg"></a>
-  <img alt="Python 3.10+" src="https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white">
-  <img alt="MCP server" src="https://img.shields.io/badge/MCP-server-7C3AED">
-  <img alt="SPARQL 1.1" src="https://img.shields.io/badge/SPARQL-1.1-0E7490">
-  <img alt="GeoSPARQL subset" src="https://img.shields.io/badge/GeoSPARQL-subset-15803D">
-  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-black">
-</p>
+<img src="assets/hero.svg" alt="mapkg: ask your map anything. OpenStreetMap as an RDF knowledge graph, an LLM writes the SPARQL, served over MCP." width="100%">
 
-<p align="center">
-  <b>
-    <a href="#quick-start">Quick start</a> ·
-    <a href="#see-it-work">Demo</a> ·
-    <a href="#how-it-works">How it works</a> ·
-    <a href="#use-it-from-claude-mcp">MCP</a> ·
-    <a href="#the-graph-model">Graph model</a> ·
-    <a href="#real-openstreetmap-data">Real data</a> ·
-    <a href="#roadmap">Roadmap</a>
-  </b>
-</p>
+<br>
 
----
+[![CI](https://github.com/YugRokadia/Natural-Language-Map-Query-Assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/YugRokadia/Natural-Language-Map-Query-Assistant/actions/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org)
+[![MCP server](https://img.shields.io/badge/MCP-server-7C3AED)](https://modelcontextprotocol.io)
+[![SPARQL 1.1](https://img.shields.io/badge/SPARQL-1.1-0E7490)](https://www.w3.org/TR/sparql11-query/)
+[![GeoSPARQL subset](https://img.shields.io/badge/GeoSPARQL-subset-15803D)](https://www.ogc.org/standards/geosparql/)
+[![Tests](https://img.shields.io/badge/tests-46%20passing-3FD0C9)](#tests)
+[![License: MIT](https://img.shields.io/badge/license-MIT-black)](LICENSE)
 
-**mapkg** turns a map into something an AI can *reason over and be checked on*. It loads OpenStreetMap
-features into an **RDF knowledge graph**, lets an **LLM translate plain-English questions into SPARQL**, runs that query
-against the graph, and serves the whole thing as an **[MCP](https://modelcontextprotocol.io) server** so Claude (or any MCP client) can
-call it as a tool.
+**[Quick start](#quick-start) · [Demo](#see-it-work) · [How it works](#how-it-works) · [Safety](#safety-model) · [MCP](#use-it-from-claude-mcp) · [Graph model](#the-graph-model) · [Real data](#real-openstreetmap-data) · [Roadmap](#roadmap)**
 
-> **Why a query language instead of letting the model answer directly?**
-> A model that answers "what's near the campus?" from memory can hallucinate. A model that writes a
-> *query* produces something auditable: every answer ships with the exact SPARQL that produced it, the
-> database does the geometry, and a read-only validator sits between the two.
+</div>
 
-<table>
-<tr>
-<td width="33%" valign="top">
+<img src="assets/divider.svg" alt="" width="100%">
 
-### 🗺️ Map → knowledge graph
-GeoPandas + Shapely turn OSM GeoJSON into RDF with **GeoSPARQL-style geometries**, tag triples, and precomputed lengths and areas.
+**mapkg** turns a map into something an AI can *reason over and be checked on*. It loads OpenStreetMap features into an **RDF knowledge graph**, lets an **LLM translate plain-English questions into SPARQL**, runs that query against the graph, and serves the whole thing as an **[MCP](https://modelcontextprotocol.io) server** so Claude (or any MCP client) can call it as a tool.
 
-</td>
-<td width="33%" valign="top">
+> **Why a query language instead of letting the model answer directly?** A model that answers "what's near the campus?" from memory can hallucinate. A model that writes a *query* produces something auditable: every answer ships with the exact SPARQL that produced it, the database does the geometry, and a read-only validator sits between the two.
 
-### 💬 Question → SPARQL
-An LLM gets a schema prompt **generated from your data**, writes the query, and **retries with the parser's error** if it's wrong. An offline rule-based engine covers common shapes.
-
-</td>
-<td width="33%" valign="top">
-
-### 🔌 Graph → MCP tools
-`ask_map`, `run_sparql`, `find_nearby`, `describe_dataset`. Works with **both MCP SDK v1 and v2**, over stdio.
-
-</td>
-</tr>
-</table>
+<img src="assets/features.svg" alt="Map to knowledge graph, question to SPARQL, graph to MCP tools" width="100%">
 
 ## See it work
 
-<p align="center">
-  <img src="assets/demo.svg" alt="Terminal demo: mapkg ask 'Which cafes are within 1 km of NMIMS?' prints the generated SPARQL and a table of three cafes at 86 m, 305 m and 756 m." width="860">
-</p>
+<img src="assets/demo.svg" alt="Terminal demo: mapkg ask 'Which cafes are within 1 km of NMIMS?' prints the generated SPARQL and a table of three cafes at 86 m, 305 m and 756 m." width="100%">
 
-<sub>This image is generated from the tool's real output by <a href="scripts/make_demo_svg.py"><code>scripts/make_demo_svg.py</code></a>, so it can't drift from what the CLI prints. It used the offline engine, so anyone can reproduce it without an API key.</sub>
+The demo uses the offline engine, so anyone can reproduce it without an API key.
 
 More questions the bundled sample dataset answers out of the box (offline engine):
 
 | Question | Answer |
-|---|---|
+| --- | --- |
 | *Which cafes are within 1 km of NMIMS?* | Sample Cafe VP1 (86 m) · VP2 (305 m) · VP3 (756 m) |
 | *Nearest pharmacy to NMIMS Mumbai Campus* | Sample Pharmacy 1, 164 m |
 | *Hospitals within 3 km of Bandra* | Lilavati Hospital, 1,278 m |
@@ -78,13 +42,13 @@ More questions the bundled sample dataset answers out of the box (offline engine
 | *Longest road* | Western Express Highway, 9,891.3 m |
 | *How many hospitals are there?* | 4 |
 
-The LLM engine handles what fixed rules can't (multi-condition filters, tag lookups, aggregations, joins). The
-rule-based engine is deliberately small: a fallback and a way to run everything offline, not a general parser.
+The LLM engine handles what fixed rules can't (multi-condition filters, tag lookups, aggregations, joins). The rule-based engine is deliberately small: a fallback and a way to run everything offline, not a general parser.
 
 ## Quick start
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/nl-map-query.git && cd nl-map-query
+git clone https://github.com/YugRokadia/Natural-Language-Map-Query-Assistant.git
+cd Natural-Language-Map-Query-Assistant
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
 
@@ -100,10 +64,12 @@ mapkg ask "Which pharmacies are closer to Vile Parle station than to Andheri sta
 ```
 
 <details>
-<summary><b>CLI reference & environment variables</b></summary>
+<summary><b>CLI reference and environment variables</b></summary>
+
+<br>
 
 | Command | What it does |
-|---|---|
+| --- | --- |
 | `mapkg ask "<question>" [--engine auto\|llm\|rules] [--json]` | Natural language → SPARQL → results |
 | `mapkg sparql "<query>"` or `@query.rq` | Run your own read-only SELECT/ASK |
 | `mapkg schema` | Print the vocabulary and dataset summary the LLM sees |
@@ -112,8 +78,8 @@ mapkg ask "Which pharmacies are closer to Vile Parle station than to Andheri sta
 | `mapkg serve` | Start the MCP server (stdio) |
 
 | Variable | Default | Meaning |
-|---|---|---|
-| `ANTHROPIC_API_KEY` | – | Enables the LLM translator |
+| --- | --- | --- |
+| `ANTHROPIC_API_KEY` | none | Enables the LLM translator |
 | `MAPKG_MODEL` | `claude-sonnet-5-5` | Any Claude model id |
 | `MAPKG_ENGINE` | `auto` | `auto` = LLM if a key is set, rules as fallback · `llm` = LLM only · `rules` = offline only |
 | `MAPKG_DATA` | bundled Mumbai sample | Path to a `.geojson` / `.ttl` file |
@@ -122,26 +88,7 @@ mapkg ask "Which pharmacies are closer to Vile Parle station than to Andheri sta
 
 ## How it works
 
-```mermaid
-flowchart LR
-    Q["Natural-language question"] --> T
-
-    subgraph Translate
-        direction TB
-        S["Schema prompt<br/>generated from the graph"] -.-> T["LLM translator<br/>Claude, Anthropic API"]
-        R["Rule-based engine<br/>offline fallback"]
-    end
-
-    T -->|SPARQL| V
-    R -->|SPARQL| V
-    V{"Read-only validator<br/>SELECT / ASK only<br/>no SERVICE"}
-    V -. "parse / runtime error,<br/>retried up to 2x" .-> T
-    V -->|valid| G[("RDF graph<br/>rdflib + geof:* functions")]
-
-    D["OSM GeoJSON<br/>Overpass or overpass-turbo"] -->|"GeoPandas + Shapely"| G
-    G --> A["Rows + the SPARQL used"]
-    A --> M["MCP tools<br/>ask_map · run_sparql<br/>find_nearby · describe_dataset"]
-```
+<img src="assets/pipeline.svg" alt="Pipeline: question, LLM translator, read-only validator, RDF graph, rows plus SPARQL, MCP tools. Validator errors retry up to twice." width="100%">
 
 1. **Ingest.** `builder.py` reads GeoJSON with GeoPandas, projects to a local UTM zone to compute line lengths and polygon areas in metres, and emits RDF.
 2. **Describe.** `schema.py` builds a prompt from the *loaded* graph: vocabulary, spatial functions, feature kinds with counts, feature names, and few-shot examples. Load a different city and the prompt adapts.
@@ -153,8 +100,10 @@ flowchart LR
 
 The LLM is treated as an untrusted query author. Nothing it writes can reach anything except a read-only, in-memory graph.
 
+<img src="assets/safety.svg" alt="Model-written queries reach a read-only validator. SELECT and ASK pass to the graph; INSERT and SERVICE are rejected." width="100%">
+
 | Risk | Control | Tested in |
-|---|---|---|
+| --- | --- | --- |
 | Model (or injected text) emits `INSERT` / `DELETE` | Parser-level allow-list: `SELECT` and `ASK` only | `test_store_safety.py`, `test_llm.py` |
 | Model emits `SERVICE <http://…>` to call out | `SERVICE` rejected | `test_store_safety.py` |
 | Huge result sets flood the client | Row cap (default 100, hard max 500) with a `truncated` flag | `test_store_safety.py` |
@@ -170,10 +119,10 @@ The LLM is treated as an untrusted query author. Nothing it writes can reach any
 {
   "mcpServers": {
     "mapkg": {
-      "command": "/ABS/PATH/nl-map-query/.venv/bin/mapkg",
+      "command": "/ABS/PATH/Natural-Language-Map-Query-Assistant/.venv/bin/mapkg",
       "args": ["serve"],
       "env": {
-        "MAPKG_DATA": "/ABS/PATH/nl-map-query/data/sample_mumbai.geojson",
+        "MAPKG_DATA": "/ABS/PATH/Natural-Language-Map-Query-Assistant/data/sample_mumbai.geojson",
         "ANTHROPIC_API_KEY": "sk-ant-..."
       }
     }
@@ -184,19 +133,18 @@ The LLM is treated as an untrusted query author. Nothing it writes can reach any
 **Claude Code:**
 
 ```bash
-claude mcp add mapkg -e MAPKG_DATA=/ABS/PATH/nl-map-query/data/sample_mumbai.geojson \
-  -- /ABS/PATH/nl-map-query/.venv/bin/mapkg serve
+claude mcp add mapkg -e MAPKG_DATA=/ABS/PATH/Natural-Language-Map-Query-Assistant/data/sample_mumbai.geojson \
+  -- /ABS/PATH/Natural-Language-Map-Query-Assistant/.venv/bin/mapkg serve
 ```
 
 | Tool | Purpose |
-|---|---|
+| --- | --- |
 | `ask_map(question)` | Plain English → SPARQL → rows (returns the generated query too) |
 | `run_sparql(query, max_rows)` | Run a read-only SELECT/ASK you wrote yourself |
 | `find_nearby(lat, lon, radius_m, kind, limit)` | Features within a radius of a coordinate, optionally filtered by kind |
 | `describe_dataset()` | Vocabulary, spatial functions, kinds and names; read it before writing your own SPARQL |
 
-Resource: `mapkg://schema`. When the MCP client is itself a strong model, it can skip `ask_map`, read `describe_dataset`,
-and write the SPARQL directly with `run_sparql`.
+Resource: `mapkg://schema`. When the MCP client is itself a strong model, it can skip `ask_map`, read `describe_dataset`, and write the SPARQL directly with `run_sparql`.
 
 ```jsonc
 // tools/call → find_nearby
@@ -206,7 +154,11 @@ and write the SPARQL directly with `run_sparql`.
 
 ## The graph model
 
-Every map object is a `mk:Feature` that is also a `geo:Feature`. This is the real output for one road in the sample data:
+Every map object is an `mk:Feature` that is also a `geo:Feature`.
+
+<img src="assets/graph.svg" alt="One road in the sample data as an RDF feature node with its category, kind, geometry type, length, label, lane count and WKT geometry." width="100%">
+
+The same road as real Turtle output from the sample data:
 
 ```turtle
 <https://example.org/mapkg/feature/sample_23> a geo:Feature, mk:Feature ;
@@ -226,7 +178,7 @@ Every map object is a `mk:Feature` that is also a `geo:Feature`. This is the rea
 rdflib has no GeoSPARQL support, so [`geosparql.py`](src/mapkg/geosparql.py) registers the functions map questions need. Distances use a local azimuthal-equidistant projection (via pyproj), so results are in true metres rather than degrees.
 
 | Function | Returns |
-|---|---|
+| --- | --- |
 | `geof:distance(?a, ?b)` | distance in **metres** (`xsd:double`) |
 | `geof:sfWithin(?a, ?b)` | `true` if A lies inside B |
 | `geof:sfContains(?a, ?b)` | `true` if A contains B |
@@ -286,7 +238,7 @@ pytest -q        # 46 tests · offline · ~2 s
 ```
 
 | Area | Tests | What's covered |
-|---|---:|---|
+| --- | --- | --- |
 | `test_rules.py` | 10 | near / nearest / top-N / count / distance / superlatives / containment, and the "Park inside *National Park*" parsing trap |
 | `test_store_safety.py` | 9 | rejects updates, `CONSTRUCT`, `DESCRIBE`, `SERVICE`, bad syntax; row caps; `ASK` |
 | `test_geosparql.py` | 7 | metre-accurate distance, CRS-prefixed WKT, topological predicates |
@@ -299,11 +251,10 @@ The suite passes on **both MCP Python SDK generations** (v1 `FastMCP` and v2 `MC
 
 ## Project layout
 
-```
-nl-map-query/
-├── assets/                hero.svg · demo.svg
+```text
+Natural-Language-Map-Query-Assistant/
+├── assets/                hero · features · pipeline · demo · safety · graph · divider (.svg)
 ├── data/sample_mumbai.geojson
-├── scripts/make_demo_svg.py   regenerates assets/demo.svg from real CLI output
 ├── src/mapkg/
 │   ├── ontology.py        namespaces and vocabulary
 │   ├── builder.py         GeoJSON → RDF (GeoPandas, Shapely)
@@ -345,3 +296,5 @@ Stated plainly, because they matter:
 ## License
 
 [MIT](LICENSE) © 2026 Yug Rokadia. Map data is © OpenStreetMap contributors (ODbL).
+
+<img src="assets/divider.svg" alt="" width="100%">
