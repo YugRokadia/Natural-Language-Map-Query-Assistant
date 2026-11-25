@@ -1,0 +1,805 @@
+{
+ "type": "FeatureCollection",
+ "name": "sample_mumbai",
+ "comment": "Illustrative sample: landmark/road/park positions are approximate; 'Sample ...' amenities are synthetic. Use scripts/fetch_osm.py for real OpenStreetMap data.",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "sample/1",
+   "properties": {
+    "name": "Chhatrapati Shivaji Maharaj Terminus",
+    "railway": "station",
+    "network": "Mumbai Suburban Railway"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8355,
+     18.9398
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/2",
+   "properties": {
+    "name": "Churchgate",
+    "railway": "station",
+    "network": "Mumbai Suburban Railway"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8272,
+     18.9322
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/3",
+   "properties": {
+    "name": "Mumbai Central",
+    "railway": "station",
+    "network": "Mumbai Suburban Railway"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8196,
+     18.969
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/4",
+   "properties": {
+    "name": "Dadar",
+    "railway": "station",
+    "network": "Mumbai Suburban Railway"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8436,
+     19.0178
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/5",
+   "properties": {
+    "name": "Bandra",
+    "railway": "station",
+    "network": "Mumbai Suburban Railway"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8402,
+     19.0544
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/6",
+   "properties": {
+    "name": "Vile Parle",
+    "railway": "station",
+    "network": "Mumbai Suburban Railway"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.844,
+     19.0997
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/7",
+   "properties": {
+    "name": "Andheri",
+    "railway": "station",
+    "network": "Mumbai Suburban Railway"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8466,
+     19.1197
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/8",
+   "properties": {
+    "name": "Lilavati Hospital",
+    "amenity": "hospital",
+    "emergency": "yes"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8286,
+     19.051
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/9",
+   "properties": {
+    "name": "Kokilaben Dhirubhai Ambani Hospital",
+    "amenity": "hospital",
+    "emergency": "yes"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8258,
+     19.1311
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/10",
+   "properties": {
+    "name": "Nanavati Hospital",
+    "amenity": "hospital",
+    "emergency": "yes"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8412,
+     19.0993
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/11",
+   "properties": {
+    "name": "Jaslok Hospital",
+    "amenity": "hospital",
+    "emergency": "yes"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8094,
+     18.9726
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/12",
+   "properties": {
+    "name": "NMIMS Mumbai Campus",
+    "amenity": "university"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8365,
+     19.1004
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/13",
+   "properties": {
+    "name": "Chhatrapati Shivaji Maharaj International Airport",
+    "aeroway": "aerodrome",
+    "iata": "BOM"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8656,
+     19.0896
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/14",
+   "properties": {
+    "name": "Gateway of India",
+    "tourism": "attraction",
+    "historic": "monument"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8347,
+     18.922
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/15",
+   "properties": {
+    "name": "Chhatrapati Shivaji Maharaj Vastu Sangrahalaya",
+    "tourism": "museum"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8326,
+     18.9269
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/16",
+   "properties": {
+    "name": "Juhu Beach",
+    "natural": "beach"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8265,
+     19.0988
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/17",
+   "properties": {
+    "name": "Haji Ali Dargah",
+    "amenity": "place_of_worship",
+    "religion": "muslim"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8089,
+     18.9827
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/18",
+   "properties": {
+    "name": "Siddhivinayak Temple",
+    "amenity": "place_of_worship",
+    "religion": "hindu"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8302,
+     19.0169
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/19",
+   "properties": {
+    "name": "Shivaji Park",
+    "leisure": "park"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.83551945576005,
+       19.025643442400565
+      ],
+      [
+       72.84008054423995,
+       19.025643442400565
+      ],
+      [
+       72.84008054423995,
+       19.028356557599437
+      ],
+      [
+       72.83551945576005,
+       19.028356557599437
+      ],
+      [
+       72.83551945576005,
+       19.025643442400565
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/20",
+   "properties": {
+    "name": "Oval Maidan",
+    "leisure": "park"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.82335094825808,
+       18.930669535333802
+      ],
+      [
+       72.82904905174192,
+       18.930669535333802
+      ],
+      [
+       72.82904905174192,
+       18.932930464666196
+      ],
+      [
+       72.82335094825808,
+       18.932930464666196
+      ],
+      [
+       72.82335094825808,
+       18.930669535333802
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/21",
+   "properties": {
+    "name": "Powai Lake",
+    "natural": "water",
+    "water": "lake"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.89846901792725,
+       19.122430327201695
+      ],
+      [
+       72.91273098207276,
+       19.122430327201695
+      ],
+      [
+       72.91273098207276,
+       19.130569672798305
+      ],
+      [
+       72.89846901792725,
+       19.130569672798305
+      ],
+      [
+       72.89846901792725,
+       19.122430327201695
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/22",
+   "properties": {
+    "name": "Sanjay Gandhi National Park",
+    "leisure": "nature_reserve",
+    "boundary": "national_park"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.88146075000496,
+       19.1833469893465
+      ],
+      [
+       72.93853924999503,
+       19.1833469893465
+      ],
+      [
+       72.93853924999503,
+       19.2466530106535
+      ],
+      [
+       72.88146075000496,
+       19.2466530106535
+      ],
+      [
+       72.88146075000496,
+       19.1833469893465
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/23",
+   "properties": {
+    "name": "Marine Drive",
+    "highway": "primary",
+    "lanes": "3"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      72.8205,
+      18.9265
+     ],
+     [
+      72.8228,
+      18.933
+     ],
+     [
+      72.823,
+      18.94
+     ],
+     [
+      72.82,
+      18.946
+     ],
+     [
+      72.815,
+      18.952
+     ],
+     [
+      72.812,
+      18.956
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/24",
+   "properties": {
+    "name": "Western Express Highway",
+    "highway": "trunk",
+    "lanes": "3"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      72.853,
+      19.062
+     ],
+     [
+      72.856,
+      19.08
+     ],
+     [
+      72.857,
+      19.1
+     ],
+     [
+      72.862,
+      19.125
+     ],
+     [
+      72.868,
+      19.15
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/25",
+   "properties": {
+    "name": "S. V. Road",
+    "highway": "primary",
+    "lanes": "2"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      72.835,
+      19.055
+     ],
+     [
+      72.837,
+      19.072
+     ],
+     [
+      72.839,
+      19.09
+     ],
+     [
+      72.841,
+      19.11
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/26",
+   "properties": {
+    "name": "Bandra-Worli Sea Link",
+    "highway": "trunk",
+    "bridge": "yes",
+    "toll": "yes"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      72.817,
+      18.993
+     ],
+     [
+      72.815,
+      19.005
+     ],
+     [
+      72.8135,
+      19.02
+     ],
+     [
+      72.813,
+      19.033
+     ],
+     [
+      72.819,
+      19.042
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/27",
+   "properties": {
+    "name": "Sample Cafe VP1",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8372,
+     19.1008
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/28",
+   "properties": {
+    "name": "Sample Cafe VP2",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.839,
+     19.099
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/29",
+   "properties": {
+    "name": "Sample Cafe VP3",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.842,
+     19.096
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/30",
+   "properties": {
+    "name": "Sample Cafe South1",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8268,
+     18.933
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/31",
+   "properties": {
+    "name": "Sample Cafe South2",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.834,
+     18.9235
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/32",
+   "properties": {
+    "name": "Sample Cafe Bandra",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.835,
+     19.056
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/33",
+   "properties": {
+    "name": "Sample Pharmacy 1",
+    "amenity": "pharmacy",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.838,
+     19.1
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/34",
+   "properties": {
+    "name": "Sample Pharmacy 2",
+    "amenity": "pharmacy",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8405,
+     19.0545
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/35",
+   "properties": {
+    "name": "Sample Pharmacy 3",
+    "amenity": "pharmacy",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.828,
+     18.9315
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/36",
+   "properties": {
+    "name": "Sample Restaurant 1",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8395,
+     19.0985
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/37",
+   "properties": {
+    "name": "Sample Restaurant 2",
+    "amenity": "restaurant",
+    "cuisine": "seafood",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8345,
+     19.0555
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/38",
+   "properties": {
+    "name": "Sample Restaurant 3",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.833,
+     18.924
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/39",
+   "properties": {
+    "name": "Sample ATM Vile Parle",
+    "amenity": "atm",
+    "operator": "Sample Bank",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8368,
+     19.0999
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "sample/40",
+   "properties": {
+    "name": "Sample School Dadar",
+    "amenity": "school",
+    "note": "synthetic sample"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.842,
+     19.02
+    ]
+   }
+  }
+ ]
+}
